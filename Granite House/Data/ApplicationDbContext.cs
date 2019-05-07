@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Granite_House.Models;
 
 namespace Granite_House.Data
 {
@@ -12,5 +13,7 @@ namespace Granite_House.Data
             : base(options)
         {
         }
+
+        DbSet<ProductTypes> ProductTypes { get; set; }
     }
 }
