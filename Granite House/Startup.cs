@@ -22,6 +22,7 @@ namespace Granite_House
         {
             Configuration = configuration;
         }
+        
 
         public IConfiguration Configuration { get; }
 
@@ -35,9 +36,12 @@ namespace Granite_House
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => 
+                     options.UseSqlServer( Configuration.GetConnectionString("DefaultConnection")));
+
+            //services.AddDbContext<ApplicationDbContext>(options => 
+            //    options.UseSqlServer(
+            //        Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -60,18 +64,26 @@ namespace Granite_House
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+           // app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+           // app.UseCookiePolicy();
 
-            app.UseAuthentication();
-
+           // app.UseAuthentication();
+           
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "areas",
                     template: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
+
+                //routes.MapRoute(
+                //    name: "areas",
+                //    template: "{area=Admin}/{controller=ProductTypes}/{action=Index}"
+
+                //    );
+
             });
+           
         }
     }
 }

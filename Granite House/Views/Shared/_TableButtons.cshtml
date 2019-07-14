@@ -1,0 +1,28 @@
+﻿@model int
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<td style="width:150px">
+    <div class="btn-group" role="group">
+        @{
+            var p = Model;
+            var edit = "ProductTypes/Edit/" + p;
+            var delete = "ProductTypes/Delete/"+p;
+            var details = "ProductTypes/Details/"+ p;
+
+        }
+        <a class="btn btn-primary"  href=@edit>
+            <i class="far fa-edit"></i>
+        </a>
+        <a class="btn btn-danger" href=@delete>
+            <i class="far fa-trash-alt"></i>
+        </a>
+        <a class="btn btn-success" href=@details>
+            <i class="fas fa-calendar-day"></i>
+        </a>
+  
+     
+    </div>
+
+</td>
