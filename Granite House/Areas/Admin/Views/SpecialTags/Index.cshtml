@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Granite_House.Models.SpecialTags>
+
+@{
+    ViewData["Title"] = "Special-Tags-Index";
+}
+
+<br /><br /><br /><br />
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info"> Product Type List</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info">&nbsp; New Special Tag </a>
+    </div>
+</div>
+
+<!-- here starts the table for showing data -->
+<br />
+<div>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor( m => m.FirstOrDefault().TagName)
+
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.TagName)
+                </td>
+                <td>
+                    <partial name="_TableButtons" model="item.TagId" />
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>

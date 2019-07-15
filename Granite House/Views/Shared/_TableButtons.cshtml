@@ -7,13 +7,19 @@
     <div class="btn-group" role="group">
         @{
             var p = Model;
-            var edit = "ProductTypes/Edit/" + p;
-            var delete = "ProductTypes/Delete/"+p;
-            var details = "ProductTypes/Details/"+ p;
+            var edit = Url.Action()+"/Edit/" + p;
+            var delete = Url.Action() + "/Delete/" + p;
+            var details = Url.Action() + "/Details/" + p;
+
+            var link = Url.Action();
+            if ( string.IsNullOrWhiteSpace(link)) {
+                link = "kichu ase nai";
+            }
 
         }
+        
         <a class="btn btn-primary"  href=@edit>
-            <i class="far fa-edit"></i>
+            <i class="far fa-edit"> </i>
         </a>
         <a class="btn btn-danger" href=@delete>
             <i class="far fa-trash-alt"></i>

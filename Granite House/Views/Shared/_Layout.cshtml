@@ -23,12 +23,16 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top ">
             <a class="navbar-brand" href="/">Granite House</a>
-          
 
-            <div class="collapse navbar-collapse" >
+
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link"  asp-area="Admin" asp-controller="ProductTypes" asp-action="Index" >Product Types</a>
+                        <a class="nav-link" asp-area="Admin" asp-controller="ProductTypes" asp-action="Index">Product Types</a>
+                        <!-- asp-area="Admin" asp-controller="ProductTypes" asp-action="Index"-->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Admin" asp-controller="SpecialTags" asp-action="Index">Special Tags</a>
                         <!-- asp-area="Admin" asp-controller="ProductTypes" asp-action="Index"-->
                     </li>
                 </ul>
@@ -43,11 +47,16 @@
         <!-- here is my code upwards -->
 
 
-        
+
     </header>
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
+            <br />
+            <br />
+            <br />
+            <br />
+
             @RenderBody()
         </main>
     </div>
@@ -79,5 +88,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
+   
 </body>
 </html>
