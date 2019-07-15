@@ -60,8 +60,70 @@ namespace Granite_House.Areas.Admin.Controllers
             }
             return View(SpecialTags);
         }
+
+
+        [HttpPost, ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditandSaveChangesToDb(int id, SpecialTags tags)
+        {
+            if (id != tags.TagId)
+            {
+                return NotFound();
+            }
+            var tag = await this.applicationDbContext.SpecialTags.FindAsync(id);
+            if (ModelState.IsValid)
+            {
+                tag.TagName = tags.TagName;
+                await this.applicationDbContext.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(tags);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var Stag = await this.applicationDbContext.SpecialTags.FindAsync(id);
+                return View(Stag);
+            }
+
+        }
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteFromDatabase(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            var tag = await this.applicationDbContext.SpecialTags.FindAsync(id);
+            this.applicationDbContext.Remove(tag);
+            await this.applicationDbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(this.Index));
+
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details (int ?id )
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+           var model = await this.applicationDbContext.SpecialTags.FindAsync(id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+            return View(model);
+        }
+
+
     }
-
-   this.
-
 }
