@@ -14,6 +14,8 @@ namespace Granite_House.Models
         public int ProductId { get; set; }
 
         public string ProductName { get; set; }
+        [Required]
+        public double Price { get; set; }
 
         public bool Available { get; set; }
 
