@@ -19,6 +19,8 @@ namespace Granite_House.Data
 
         public DbSet<Products> Products { get; set; }
 
+        public DbSet<Movie> Movies { get; set; }
+
         public int MyProperty { get; set; }
     }
 }

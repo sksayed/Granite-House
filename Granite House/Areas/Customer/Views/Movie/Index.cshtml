@@ -1,0 +1,88 @@
+﻿@model Granite_House.Models.ViewModel.MovieViewModel
+
+@{
+    ViewData["Title"] = "Movie List";
+}
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info"> Movie List</h2>
+    </div>
+  
+
+ 
+    <div class="col-6 text-right">
+        <a asp-area="Admin" asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; New Movie </a>
+        <a asp-area="Admin" asp-action="TestDropDown" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; Test </a>
+    </div>
+</div>
+<!--
+here we will define the input String section    
+-->
+
+<div class="row">
+    <form asp-area="Customer" asp-action="Search" asp-controller="Movie" method="get">
+        <div class="  d-inline col-2 text-dark">
+            <p>
+                Title:
+            </p>
+        </div>
+        <div class="col-md-5 d-inline">
+            <input type="text" name="SearchString" />
+        </div>
+        <div class="col-md-2 d-inline">
+            <input type="submit" value="Filter" />
+        </div>
+        <div class="col-md-4 d-inline">
+            <select asp-for="MovieGenere" asp-items="Model.GenereSelectList" >
+                <option value=""> All </option>
+            </select>
+        </div>
+    </form>
+</div>
+
+<br />
+<div>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.Movies[0].Title )
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Movies[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Movies[0].Genere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Movies[0].ReleaseDate)
+            </th>
+            
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Movies)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Genere)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.ReleaseDate)
+                </td>
+                
+                <td>
+                    <partial name="_TableButtons" model="item.Id" />
+                </td>
+            </tr>
+
+        }
+    </table>
+</div>

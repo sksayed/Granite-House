@@ -9,6 +9,7 @@ using Granite_House.Models.ViewModel;
 using Microsoft.AspNetCore.Hosting.Internal;
 using System.IO;
 using Granite_House.Utility;
+using Granite_House.Extension;
 
 namespace Granite_House.Areas.Admin.Controllers
 {
@@ -29,7 +30,10 @@ namespace Granite_House.Areas.Admin.Controllers
             {
                 Products = new Models.Products(),
                 ProductTypes = this._db.ProductTypes.ToList(),
-                SpecialTags = this._db.SpecialTags.ToList()
+                SpecialTags = this._db.SpecialTags.ToList(),
+                selectLists = this._db.ProductTypes.ToSelectListItem()
+
+
             };
 
         }
@@ -108,7 +112,18 @@ namespace Granite_House.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        [HttpGet, ActionName("TestDropDown")]
+        public string TestDropDown()
+        {
+            var pvm = this._ProductsVM;
+            //todo
+            var ProtudctTypes = this._db.ProductTypes.Where(b => b.Name.Contains("this")).FirstOrDefault();
+            var val = ProtudctTypes.GetPropertyValue("Name");
+            var EnumerableMethodtest = pvm.ProductTypes.ToSelectListItem();
+            
 
+            return val;
+        }
 
 
         

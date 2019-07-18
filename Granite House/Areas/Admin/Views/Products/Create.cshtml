@@ -1,7 +1,10 @@
 ﻿@model Granite_House.Models.ViewModel.ProductsViewModels
 @using Granite_House.Extension
+
 @{
     ViewData["Title"] = "Create";
+
+    var ids = Model.Products.ProductTypesId;
 }
 
 <br />
@@ -41,7 +44,7 @@
                 <label asp-for="ProductTypes"></label>
             </div>
             <div class="col-5">
-                <select asp-for="@Model.Products.ProductTypesId" asp-items="Model.ProductTypes.ToSelectListItem(Model.Products.ProductTypesId)" class="form-control"></select>
+                <select asp-for="@Model.Products.ProductTypesId" asp-items="Model.selectLists" class="form-control"></select>
             </div>
         </div>
         <div class="form-group row">

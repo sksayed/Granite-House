@@ -73,8 +73,10 @@ namespace Granite_House
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "areas",
-                    template: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
+                    name: "default",
+                    template: "{area}/{controller}/{action}/{id?}",
+                     defaults: new { area="Admin" , controller="Home" , action="Index" });
+
 
                 //routes.MapRoute(
                 //    name: "areas",

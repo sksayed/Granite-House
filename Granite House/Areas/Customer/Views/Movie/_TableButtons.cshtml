@@ -1,0 +1,34 @@
+﻿@model int
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<td style="width:150px">
+    <div class="btn-group" role="group">
+        @{
+            var p = Model;
+            var edit = Url.Action()+"/Edit/" + p;
+            var delete = Url.Action() + "/Delete/" + p;
+            var details = Url.Action() + "/Details/" + p;
+
+            var link = Url.Action();
+            if ( string.IsNullOrWhiteSpace(link)) {
+                link = "kichu ase nai";
+            }
+
+        }
+        
+        <a class="btn btn-primary"  href=@edit>
+            <i class="far fa-edit"> </i>
+        </a>
+        <a class="btn btn-danger" href=@delete>
+            <i class="far fa-trash-alt"></i>
+        </a>
+        <a class="btn btn-success" href=@details>
+            <i class="fas fa-calendar-day"></i>
+        </a>
+  
+     
+    </div>
+
+</td>

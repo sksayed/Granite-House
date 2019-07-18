@@ -11,7 +11,7 @@ namespace Granite_House.Models
         [Required]
         [Key]
         public int TagId { get; set; }
-
+        [MinLength(3,ErrorMessage =" You Must Input 3 characters ")]
         [Required]
         public string TagName { get; set; }
 

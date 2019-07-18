@@ -1,0 +1,36 @@
+﻿@model Granite_House.Models.ViewModel.ProductsViewModels
+@{ 
+    ViewData["Titile"] = "Testing";
+}
+
+<div class="row">
+    <select name="fruit">
+        <option value="none">Nothing</option>
+        <option value="guava">Guava</option>
+        <option value="lychee">Lychee</option>
+        <option value="papaya">Papaya</option>
+    </select>
+</div>
+
+<div class="row">
+    <table class="table table-striped border">
+        <tr >
+            <th>
+                @Html.DisplayNameFor(m => m.ProductTypes.First().ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.ProductTypes.First().Name)
+            </th>
+
+        </tr>
+     
+            <tr>
+
+               @foreach (var p in Model.ProductTypes) { 
+                <td> @Html.DisplayFor(z => p.ID) </td>
+                <td> @Html.DisplayFor(z => p.Name) </td>
+               } 
+            </tr>
+     
+    </table>  
+</div>
