@@ -26,6 +26,7 @@ namespace Granite_House.Models
         //we will use dataannotations to configure 
         //we will use fluent Api in future to configure the 
         //database table 
+        [Required ]
         [Display(Name = "Product Type")]
         public int ProductTypesId { get; set; }
 
@@ -37,6 +38,7 @@ namespace Granite_House.Models
         //we will use dataannotations to configure 
         //we will use fluent Api in future to configure the 
         //database table 
+        [Required]
         [Display(Name = "Special Tags")]
         public int SpecialTagsId { get; set; }
 

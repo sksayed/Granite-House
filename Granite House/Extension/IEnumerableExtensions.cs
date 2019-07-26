@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace Granite_House.Extension
 {
-    public static class IEnumerableExtensions
+    public static class EnumerableExtensions
     {
         public static List<SelectListItem> ToSelectListItem<T>(this IEnumerable<T> items)
         {

@@ -22,6 +22,8 @@ namespace Granite_House.Models.ViewModel
 
         public IEnumerable<ProductTypes> ProductTypes { get; set; }
 
+        public List<SelectListItem> specialTagList { get; set; }
+
 
     }
 }

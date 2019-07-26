@@ -7,19 +7,18 @@
     <div class="btn-group" role="group">
         @{
             var p = Model;
-            var edit = Url.Action() + "/Edit/" + p;
+            var edit = Url.Action()+"/Edit/" + p;
             var delete = Url.Action() + "/Delete/" + p;
             var details = Url.Action() + "/Details/" + p;
 
             var link = Url.Action();
-            if (string.IsNullOrWhiteSpace(link))
-            {
+            if ( string.IsNullOrWhiteSpace(link)) {
                 link = "kichu ase nai";
             }
 
         }
-
-        <a class="btn btn-primary" href=@edit>
+        
+        <a class="btn btn-primary"  href=@edit>
             <i class="far fa-edit"> </i>
         </a>
         <a class="btn btn-danger" href=@delete>
@@ -28,8 +27,8 @@
         <a class="btn btn-success" href=@details>
             <i class="fas fa-calendar-day"></i>
         </a>
-
-
+  
+     
     </div>
 
 </td>
